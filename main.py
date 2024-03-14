@@ -19,6 +19,14 @@ listbox.pack()
 list1=['Wake up early','breakfast','jogging','bathing']
 for i in list1:
     listbox.insert(tk.END,i)
+def delete_selected():
+    selected_indices = listbox.curselection()
+    for index in reversed(selected_indices):
+        listbox.delete(index)
+
+
+listbox.bind("<<ListboxSelect>>", lambda event: delete_selected())
+
 button1=tk.Button(root,text="ADD",command=add)
 button1.pack()
 
