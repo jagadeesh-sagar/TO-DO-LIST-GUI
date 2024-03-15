@@ -5,17 +5,17 @@ def add2(entry):
     listbox.insert(tk.END,r)
     entry.delete(0,tk.END)
 def insert():
-    entry=tk.Entry(root,width=10)
-    entry.pack()
-    button1=tk.Button(root,text="enter",command=lambda k=entry:add2(k))
-    button1.pack()
+    entry=tk.Entry(root,width=50,borderwidth=5,insertwidth=5)
+    entry.place(x=410,y=120)
+    button1=tk.Button(root,text="ENTER",command=lambda k=entry:add2(k)).place(x=440,y=150)
+
 def add():
     insert()
 root=tk.Tk()
 root.title("to do list in gui")
 root.geometry("1000x700")
-listbox=tk.Listbox(root,height=8)
-listbox.pack()
+listbox=tk.Listbox(root,height=10,width=50)
+listbox.place(x=10,y=50)
 list1=['Wake up early','breakfast','jogging','bathing']
 for i in list1:
     listbox.insert(tk.END,i)
@@ -27,8 +27,8 @@ def delete_selected():
 
 listbox.bind("<<ListboxSelect>>", lambda event: delete_selected())
 
-button1=tk.Button(root,text="ADD",command=add)
-button1.pack()
+button1=tk.Button(root,text="ADD",command=add).place(x=440,y=90)
+
 
 root.mainloop()
 
